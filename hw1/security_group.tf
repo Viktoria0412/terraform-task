@@ -1,6 +1,6 @@
-resource "aws_security_group" "ssh-sg" {
-  name        = "ssh-sg"
-  description = "Allow SSH inbound traffic"
+resource "aws_security_group" "sg" {
+  name        = "sg"
+  description = "Allow SSH and HTTP inbound traffic"
   vpc_id      = aws_vpc.my_vpc.id
 
   ingress {
@@ -9,27 +9,8 @@ resource "aws_security_group" "ssh-sg" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+
   }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Project     = "VPC_Task"
-    Environment = "Test"
-    Team        = "DevOps"
-    Created_by  = "Viktoryia Kochkina"
-  }
-}
-
-resource "aws_security_group" "http-sg" {
-  name        = "http-sg"
-  description = "Allow HTTP inbound traffic"
-
   ingress {
     description = "HTTP from VPC"
     from_port   = 80
@@ -47,7 +28,7 @@ resource "aws_security_group" "http-sg" {
 
   tags = {
     Project     = "VPC_Task"
-    Environment = "Test "
+    Environment = "Test"
     Team        = "DevOps"
     Created_by  = "Viktoryia Kochkina"
   }
