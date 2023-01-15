@@ -18,10 +18,10 @@ resource "aws_security_group" "ssh-sg" {
   }
 
   tags = {
-    Project = "VPC_Task" 
+    Project     = "VPC_Task"
     Environment = "Test"
-    Team = "DevOps"
-    Created_by = "Viktoryia Kochkina"
+    Team        = "DevOps"
+    Created_by  = "Viktoryia Kochkina"
   }
 }
 
@@ -45,10 +45,10 @@ resource "aws_security_group" "http-sg" {
   }
 
   tags = {
-    Project = "VPC_Task"
+    Project     = "VPC_Task"
     Environment = "Test "
-    Team = "DevOps"
-    Created_by = "Viktoryia Kochkina"
+    Team        = "DevOps"
+    Created_by  = "Viktoryia Kochkina"
   }
 }
 
