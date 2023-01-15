@@ -4,10 +4,10 @@ resource "aws_security_group" "ssh-sg" {
 
   ingress {
     description = "SSH from VPC"
-    from_port   = var.ssh_port
-    to_port     = var.ssh_port
+    from_port   = 22
+    to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = var.ingress_cidr
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -31,10 +31,10 @@ resource "aws_security_group" "http-sg" {
 
   ingress {
     description = "HTTP from VPC"
-    from_port   = var.http_port
-    to_port     = var.http_port
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = var.ingress_cidr
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
